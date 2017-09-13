@@ -6,5 +6,10 @@ angular.module("letsTrek").controller("mainCtrl", function($scope, service){
     console.log($scope.getPlaces)
   })
 
+  var promise1 = service.getLocations();
+  promise1.then(function(data){
+    $scope.getLocations = data
+    console.log($scope.getLocations)
+})
 
 });
