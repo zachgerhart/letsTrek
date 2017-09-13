@@ -1,4 +1,7 @@
 angular.module("letsTrek").controller("mainCtrl", function($scope, service){
+  navigator.geolocation.getCurrentPosition(function(res){
+    console.log(res);
+  })
 
   var promise2 = service.getPlaces();
   promise2.then(function(data){
@@ -11,5 +14,9 @@ angular.module("letsTrek").controller("mainCtrl", function($scope, service){
     $scope.getLocations = data
     console.log($scope.getLocations)
 })
+
+
+
+
 
 });
