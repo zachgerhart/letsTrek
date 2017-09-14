@@ -5,12 +5,13 @@ $urlRouterProvider.otherwise('/')
 $stateProvider
 .state('map', {
   url: '/map',
-  //controller: 'mainCtrl',
+  controller: 'mapsCtrl',
   templateUrl: './js/maps.html'
 })
 .state('home', {
   url: '/',
-  templateUrl: './js/home.html'
+  templateUrl: './js/home.html',
+  controller: 'mainCtrl'
 })
 
 

@@ -12,14 +12,8 @@
           <li><a ui-sref="home">Home</a></li>
         </ul>
 
-      <div ng-repeat="location in locations">
-
-      </div>
-      <div ng-repeat="place in getPlaces">
-
-      </div>
-      <div id="map"></div>
-      <input type="text" ng-model="textInput">
+      <!-- <div id="map"></div> -->
+      <!-- <input type="text" ng-model="textInput" placeholder="Enter Zip"> -->
 
     <ui-view></ui-view>
 
@@ -28,12 +22,12 @@
             <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
 
       <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4Zrs79ze6K0mjpRi2BYxY30pKwTN4p54&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4Zrs79ze6K0mjpRi2BYxY30pKwTN4p54">
         </script>
 
       <script src="js/app.js"></script>
       <script src="js/mainCtrl.js"></script>
       <script src="js/service.js"></script>
-
+      <script src="js/mapsCtrl.js"></script>
   </body>
 </html>

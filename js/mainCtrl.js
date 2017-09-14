@@ -1,4 +1,7 @@
 angular.module("letsTrek").controller("mainCtrl", function($scope, service){
+  
+
+
   navigator.geolocation.getCurrentPosition(function(res){
     console.log(res);
   })
@@ -14,6 +17,8 @@ angular.module("letsTrek").controller("mainCtrl", function($scope, service){
     $scope.getLocations = data
     console.log($scope.getLocations)
 })
+
+
 
 
 

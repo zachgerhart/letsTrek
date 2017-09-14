@@ -1,4 +1,5 @@
 angular.module("letsTrek").service("service", function($http, $q){
+
   var apiPlaces = "https://trailapi-trailapi.p.mashape.com/?mashape-key=GaO04j8uRRmsh0fssZIhf5pUcu5wp1pkNPLjsnutWRNwTo6i0Z"
 
   var apiLocations = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA4Zrs79ze6K0mjpRi2BYxY30pKwTN4p54"
@@ -8,7 +9,17 @@ angular.module("letsTrek").service("service", function($http, $q){
 $http.get(apiPlaces).then(function(data){
   deferred2.resolve(data);
 })
-
+this.getLocale = function(){
+  return $q(function(resolve, rej){
+    navigator.geolocation.getCurrentPosition(function(res){
+      var location = {
+        lng: res.coords.longitude,
+        lat: res.coords.latitude
+      }
+      resolve(location)
+    })
+  })
+}
 this.getPlaces = function(){
   return deferred2.promise
 }
@@ -28,15 +39,3 @@ return deferred1.promise
 
 
 });
-
-function initMap(lat, lon) {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 6,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
