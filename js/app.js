@@ -4,7 +4,7 @@ angular.module("letsTrek", ["ui.router"]).config(function($stateProvider, $urlRo
 $urlRouterProvider.otherwise('/')
 $stateProvider
 .state('map', {
-  url: '/map',
+  url: '/map/:zip',
   controller: 'mapsCtrl',
   templateUrl: './js/maps.html'
 })
