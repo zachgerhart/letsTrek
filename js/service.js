@@ -10,6 +10,8 @@ var deferred2 = $q.defer();
 this.getStateTrails = function(state){
   return $http.get(apiPlaces + apiKey + '&q[state_cont]=' + state ).then(function(res){
     var trails = res.data.places
+    return trails
+    // console.log("longitude =", trails.lon)
     deferred2.resolve(res);
   })
 }
