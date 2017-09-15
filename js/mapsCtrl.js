@@ -1,6 +1,6 @@
 angular.module("letsTrek").controller("mapsCtrl", function($scope, service, $stateParams){
-  if ($stateParams.zip){
-      service.getLocaleByZip($stateParams.zip).then(function(response){
+  if ($stateParams.state){
+      service.getLocaleByZip($stateParams.state).then(function(response){
         initMap(response.lat, response.lng)
       })
     // console.log($stateParams.zip);
@@ -9,8 +9,13 @@ angular.module("letsTrek").controller("mapsCtrl", function($scope, service, $sta
     service.getLocale().then(function(response){
         initMap(response.lat, response.lng)
     })
-
 }
+
+$scope.getTrails = service.getStateTrails($stateParams.state)
+
+
+
+
 
 function initMap(lat, lon) {
         var uluru = {lat: lat, lng: lon};
