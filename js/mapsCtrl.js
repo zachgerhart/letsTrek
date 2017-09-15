@@ -1,9 +1,9 @@
 angular.module("letsTrek").controller("mapsCtrl", function($scope, service, $stateParams){
   if ($stateParams.zip){
-      service.getLocale($stateParams.zip).then(function(response){
+      service.getLocaleByZip($stateParams.zip).then(function(response){
         initMap(response.lat, response.lng)
       })
-    console.log($stateParams.zip);
+    // console.log($stateParams.zip);
   }
   else{
     service.getLocale().then(function(response){

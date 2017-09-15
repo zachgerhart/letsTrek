@@ -1,5 +1,5 @@
 angular.module("letsTrek").service("service", function($http, $q){
-
+  var zipUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address='
   var apiPlaces = "https://trailapi-trailapi.p.mashape.com/?mashape-key=GaO04j8uRRmsh0fssZIhf5pUcu5wp1pkNPLjsnutWRNwTo6i0Z"
 
   var apiLocations = "https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyA4Zrs79ze6K0mjpRi2BYxY30pKwTN4p54"
@@ -20,6 +20,11 @@ this.getLocale = function(){
     })
   })
 }
+this.getLocaleByZip = function(zip){
+  return $http.get(zipUrl + zip).then(function(response){
+    return response.data.results.pop().geometry.location
+  })
+}
 this.getPlaces = function(){
   return deferred2.promise
 }
@@ -32,10 +37,5 @@ deferred1.resolve(data);
 this.getLocations = function(){
 return deferred1.promise
 }
-
-
-
-
-
 
 });
