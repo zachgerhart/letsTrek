@@ -1,8 +1,25 @@
-body {
-  background-color: red;
+/*
+  background-image: url("https://unsplash.com/search/photos/hiking?photo=j2KI6FTc3jA");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  height: 100vh;
+}*/
+
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
 }
 
 
+
+body {
+  background: url(tobias-cornille-142864.jpg) no-repeat center center;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
 
 
 #map {
