@@ -1,21 +1,24 @@
 angular.module("letsTrek").controller("mapsCtrl", function($scope, service, $stateParams){
 var map;
-function initMap(lat, lon) {
+
+function initMap(lat, lon, content) {
   var uluru = {lat: lat, lng: lon};
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 6,
     center: uluru
   });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-  });
-
+ //  var contentString = content;
  //  var infowindow = new google.maps.InfoWindow({
  //   content: contentString
  // });
- // marker.addListener('click', function() {
- //  infowindow.open(map, marker);
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+    // infowindow: infowindow
+  });
+
+ // google.maps.event.addListener(marker, 'click', function() {
+ //  this.infowindow.open(map, this);
  // });
 
 
@@ -31,29 +34,62 @@ function initMap(lat, lon) {
   }
   else{
     service.getLocale().then(function(response){
+        console.log(window)
         initMap(response.lat, response.lng)
     })
 }
 
 $scope.getTrails = service.getStateTrails($stateParams.state).then(function(res){
-  console.log(res);
+  //console.log(res);
   for (var i=0; i < res.length; i++){
-    var lat = res[i].lat
-    var lng = res[i].lon
-    var title = res[i].name
-    // var latLng = new google.maps.LatLng(lat, lng);
+    createMarker(res[i]);
+  }
+
+  function createMarker(re){
+    //console.log(re)
     var marker = new google.maps.Marker({
-      title: title,
+      title: re.name,
       position: {
-        lat: lat,
-        lng: lng
+        lat: re.lat,
+        lng: re.lon
       },
+      // infowindow: infowindow,
       map: map
     })
-    // console.log(marker)
+
+    var infowindow = new window.google.maps.InfoWindow({
+      //content: title
+     // console.log(marker)
+
+   })
+   marker.addListener('click', function(){
+     infowindow.setContent(re.name);
+     console.log(infowindow);
+     infowindow.open(map, this);
+   })
   }
+//     var lat = res[i].lat
+//     var lng = res[i].lon
+//     var title = res[i].name
+//     var infowindow = new google.maps.InfoWindow({
+//       //content: title
+//      // console.log(marker)
+//
+//    })
+//     // var latLng = new google.maps.LatLng(lat, lng);
+//     var marker = new google.maps.Marker({
+//       title: title,
+//       position: {
+//         lat: lat,
+//         lng: lng
+//       },
+//       infowindow: infowindow,
+//       map: map
+//     })
+//
+// }
+
+
 })
-
-
 });
 // console.log($scope.getTrails)
