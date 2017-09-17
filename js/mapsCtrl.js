@@ -34,7 +34,7 @@ function initMap(lat, lon, content) {
   }
   else{
     service.getLocale().then(function(response){
-        console.log(window)
+        //console.log(window);
         initMap(response.lat, response.lng)
     })
 }
@@ -46,7 +46,7 @@ $scope.getTrails = service.getStateTrails($stateParams.state).then(function(res)
   }
 
   function createMarker(re){
-    //console.log(re)
+    console.log(re)
     var marker = new google.maps.Marker({
       title: re.name,
       position: {
@@ -62,10 +62,15 @@ $scope.getTrails = service.getStateTrails($stateParams.state).then(function(res)
      // console.log(marker)
 
    })
-   marker.addListener('click', function(){
-     infowindow.setContent(re.name);
-     console.log(infowindow);
+   marker.addListener('mouseover', function(){
+     infowindow.setContent(re.name + "<br>" + re.city);
+     //console.log(infowindow);
      infowindow.open(map, this);
+   })
+   marker.addListener('mouseout', function(){
+     infowindow.setContent(re.name);
+     //console.log(infowindow);
+     infowindow.close(map, this);
    })
   }
 //     var lat = res[i].lat
