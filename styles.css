@@ -115,6 +115,36 @@ button:hover {
 opacity: 0.6;
       }
 
-      h1 {
-        padding-left: 15px;
-      }
+h1 {
+  padding-left: 15px;
+}
+
+.quote {
+  text-align: center;
+  height: 18vh;
+  font-size: 30px;
+
+}
+
+.tuna {
+  /* steps causes the animation to chunk into 12 equal pieces */
+  animation: walk-cycle 1s steps(12) infinite;
+  background: url(http://stash.rachelnabors.com/img/codepen/tuna_sprite.png) 0 0 no-repeat;
+  height: 200px;
+  width: 400px;
+  margin: 100px auto 0;
+  float: right;
+  /*display: none;*/
+  opacity: 0;
+}
+.tuna:hover {
+    opacity: 1;
+}
+
+
+@keyframes walk-cycle {
+  0% {background-position: 0 0; }
+  100% {background-position: 0 -2391px; } /* Must be full height of sprite or skipping will happen.*/
+}
+
+p {text-align: center;}
