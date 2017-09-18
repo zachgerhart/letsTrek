@@ -5,11 +5,11 @@ $stateProvider
 .state('map', {
   url: '/map/:state',
   controller: 'mapsCtrl',
-  templateUrl: './js/maps.html'
+  templateUrl: '/js/maps.html'
 })
 .state('home', {
   url: '/',
-  templateUrl: './js/home.html',
+  templateUrl: '/js/home.html',
   controller: 'mainCtrl'
 })
 

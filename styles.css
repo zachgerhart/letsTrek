@@ -32,7 +32,7 @@ img  {
 
 .borderBox {
   border: rgba(78, 76, 75, 0.9) solid 11px;
-  width: 30%;
+  width: 27%;
   margin: 0 auto;
 
 }
@@ -51,12 +51,16 @@ img  {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 
 }
 
 .headerContainer {
   background-color: rgba(105, 160, 65, .5);
-  height: 18%;
+  height: 15%;
 
   display: flex;
   align-items: center;
@@ -124,6 +128,7 @@ h1 {
   height: 18vh;
   font-size: 30px;
 
+
 }
 
 .tuna {
@@ -146,5 +151,3 @@ h1 {
   0% {background-position: 0 0; }
   100% {background-position: 0 -2391px; } /* Must be full height of sprite or skipping will happen.*/
 }
-
-p {text-align: center;}
