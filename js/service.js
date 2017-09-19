@@ -1,5 +1,5 @@
 angular.module("letsTrek").service("service", function($http, $q){
-  var zipUrl = 'http://maps.googleapis.com/maps/api/geocode/json?address='
+  var zipUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address='
   var apiPlaces = "https://trailapi-trailapi.p.mashape.com/"
   var apiKey = "?mashape-key=GaO04j8uRRmsh0fssZIhf5pUcu5wp1pkNPLjsnutWRNwTo6i0Z"
 

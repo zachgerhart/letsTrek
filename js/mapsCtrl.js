@@ -46,7 +46,6 @@ $scope.getTrails = service.getStateTrails($stateParams.state).then(function(res)
   }
 
   function createMarker(re){
-    console.log(re)
     var marker = new google.maps.Marker({
       title: re.name,
       position: {
